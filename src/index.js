@@ -37,7 +37,7 @@ const loadTodos = () => {
     });
   });
 
-  const editTodo = document.querySelectorAll('.todo-item');
+  const editTodo = document.querySelectorAll('.todo-list-item');
   const checkedBox = document.querySelectorAll('.box');
   editTodo.forEach((todo) => {
     todo.addEventListener('keyup', (e) => {
@@ -52,25 +52,19 @@ const loadTodos = () => {
     });
   });
 
-  const todoItems = document.querySelectorAll('.item');
-  const chexkbox = document.querySelectorAll('.box');
-  chexkbox.forEach((checkbox) => {
+  const todoListItems = document.querySelectorAll('.item');
+  const checkbox = document.querySelectorAll('.box');
+  checkbox.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
       const { complete } = e.target.dataset;
       if (checkbox.checked) {
         todoListArray.toggleCompleted(complete);
-        todoItems[complete - 1].classList.add('checked');
+        todoListItems[complete - 1].classList.add('checked');
       } else {
         todoListArray.toggleCompleted(complete);
-        todoItems[complete - 1].classList.remove('checked');
+        todoListItems[complete - 1].classList.remove('checked');
       }
     });
-  });
-
-  const removeCompleted = document.querySelector('.clear-all');
-  removeCompleted.addEventListener('click', () => {
-    todoListArray.clearCompleted();
-    loadTodos();
   });
 };
 
