@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+  rel="stylesheet"/>
+  <title>ToDo List</title>
+</head>
+<body>
+  <div class="todo-wrap flex">
+    <div class="flex">
+      <h1>Today's To Do</h1>
+      <i class='bx bx-refresh'></i>
+    </div>
+    <form class="form flex">
+      <input
+      class="input enter-text"
+      type="text"
+      name="todo"
+      placeholder="Add a todo...."
+      aria-label="Add a todo"
+    />
+    <button type="submit" class="submit"><i class='bx bx-cart-add'></i></button>
+    </form>
+    <div class="todo-list"></div>
+    <div class="clear-list flex">
+      <button type="button" class="clear-all">
+        Clear All Completed
+      </button>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy Grey Is Silver</p>
+  </footer>
+</body>
+</html>
