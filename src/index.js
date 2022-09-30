@@ -43,7 +43,7 @@ const loadTodos = () => {
   editTodo.forEach((todo) => {
     todo.addEventListener('keyup', (e) => {
       const { dataset, value } = e.target;
-      const id = dataset.item;
+      const idx = dataset.item;
       const description = value.trim();
       const completed = false;
       const newTodo = new TodoListItem(description, completed, idx);
