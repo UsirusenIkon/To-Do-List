@@ -48,7 +48,7 @@ const loadTodos = () => {
       const completed = false;
       const newTodo = new TodoListItem(description, completed, idx);
       todoListArray.updateTodo(idx, newTodo);
-      checkedBox[id - 1].checked = false;
+      checkedBox[idx - 1].checked = false;
       todo.classList.remove('ticked');
     });
   });
