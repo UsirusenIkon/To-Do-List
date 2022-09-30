@@ -57,7 +57,6 @@ const loadTodos = () => {
   const checkbox = document.querySelectorAll('.box');
   checkbox.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
-      console.log(e);
       const { complete } = e.target.dataset;
       if (checkbox.checked) {
         todoListArray.clickCompleted(complete);
