@@ -3,6 +3,7 @@ import TodoArray from './modules/TodoListArray.js';
 import TodoListItem from './modules/TodoListItem.js';
 
 const todoListArray = new TodoArray();
+const deleteCompleted = document.querySelector('.clear-all');
 
 const loadTodos = () => {
   const todoCover = document.querySelector('.todo-list');
@@ -14,7 +15,7 @@ const loadTodos = () => {
       const todoListItem = document.createElement('div');
       todoListItem.classList.add('todo-list-item');
       const todoListStatus = () => {
-        const listStatus = todo.completed ? 'checked' : '';
+        const listStatus = todo.completed ? 'ticked' : '';
         return listStatus;
       };
       todoListItem.innerHTML = `
@@ -45,10 +46,10 @@ const loadTodos = () => {
       const id = dataset.item;
       const description = value.trim();
       const completed = false;
-      const newTodo = new TodoListItem(description, completed, id);
-      todoListArray.updateTodo(id, newTodo);
+      const newTodo = new TodoListItem(description, completed, idx);
+      todoListArray.updateTodo(idx, newTodo);
       checkedBox[id - 1].checked = false;
-      todo.classList.remove('checked');
+      todo.classList.remove('ticked');
     });
   });
 
@@ -56,15 +57,21 @@ const loadTodos = () => {
   const checkbox = document.querySelectorAll('.box');
   checkbox.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
+      console.log(e);
       const { complete } = e.target.dataset;
       if (checkbox.checked) {
-        todoListArray.toggleCompleted(complete);
-        todoListItems[complete - 1].classList.add('checked');
+        todoListArray.clickCompleted(complete);
+        todoListItems[complete - 1].classList.add('ticked');
       } else {
-        todoListArray.toggleCompleted(complete);
-        todoListItems[complete - 1].classList.remove('checked');
+        todoListArray.clickCompleted(complete);
+        todoListItems[complete - 1].classList.remove('ticked');
       }
     });
+  });
+
+  deleteCompleted.addEventListener('click', () => {
+    todoListArray.clearCompleted();
+    loadTodos();
   });
 };
 
