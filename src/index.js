@@ -3,6 +3,7 @@ import TodoArray from './modules/TodoListArray.js';
 import TodoListItem from './modules/TodoListItem.js';
 
 const todoListArray = new TodoArray();
+const deleteCompleted = document.querySelector('.clear-all');
 
 const loadTodos = () => {
   const todoCover = document.querySelector('.todo-list');
@@ -14,7 +15,7 @@ const loadTodos = () => {
       const todoListItem = document.createElement('div');
       todoListItem.classList.add('todo-list-item');
       const todoListStatus = () => {
-        const listStatus = todo.completed ? 'checked' : '';
+        const listStatus = todo.completed ? 'ticked' : '';
         return listStatus;
       };
       todoListItem.innerHTML = `
@@ -37,38 +38,37 @@ const loadTodos = () => {
     });
   });
 
-  const editTodo = document.querySelectorAll('.todo-item');
+  const editTodo = document.querySelectorAll('.todo-list-item');
   const checkedBox = document.querySelectorAll('.box');
   editTodo.forEach((todo) => {
     todo.addEventListener('keyup', (e) => {
       const { dataset, value } = e.target;
-      const id = dataset.item;
+      const idx = dataset.item;
       const description = value.trim();
       const completed = false;
-      const newTodo = new TodoListItem(description, completed, id);
-      todoListArray.updateTodo(id, newTodo);
-      checkedBox[id - 1].checked = false;
-      todo.classList.remove('checked');
+      const newTodo = new TodoListItem(description, completed, idx);
+      todoListArray.updateTodo(idx, newTodo);
+      checkedBox[idx - 1].checked = false;
+      todo.classList.remove('ticked');
     });
   });
 
-  const todoItems = document.querySelectorAll('.item');
-  const chexkbox = document.querySelectorAll('.box');
-  chexkbox.forEach((checkbox) => {
+  const todoListItems = document.querySelectorAll('.item');
+  const checkbox = document.querySelectorAll('.box');
+  checkbox.forEach((checkbox) => {
     checkbox.addEventListener('click', (e) => {
       const { complete } = e.target.dataset;
       if (checkbox.checked) {
-        todoListArray.toggleCompleted(complete);
-        todoItems[complete - 1].classList.add('checked');
+        todoListArray.clickCompleted(complete);
+        todoListItems[complete - 1].classList.add('ticked');
       } else {
-        todoListArray.toggleCompleted(complete);
-        todoItems[complete - 1].classList.remove('checked');
+        todoListArray.clickCompleted(complete);
+        todoListItems[complete - 1].classList.remove('ticked');
       }
     });
   });
 
-  const removeCompleted = document.querySelector('.clear-all');
-  removeCompleted.addEventListener('click', () => {
+  deleteCompleted.addEventListener('click', () => {
     todoListArray.clearCompleted();
     loadTodos();
   });

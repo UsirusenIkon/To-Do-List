@@ -13,6 +13,7 @@
 }
 
 body {
+  background-color: var(--tetiary-color);
   font-size: 1rem;
   padding-top: 5rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -50,7 +51,7 @@ button {
 
 .todo-wrap {
   border: 1px solid black;
-  margin: 2rem auto;
+  margin: 3rem auto;
   flex-direction: column;
   background-color: var(--secondary-color);
 }
@@ -100,6 +101,11 @@ input:focus {
   font-size: 2rem;
 }
 
+.ticked {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
 .clear-list {
   justify-content: center;
   background-color: var(--tetiary-color);
@@ -120,7 +126,6 @@ input:focus {
   color: rgba(240, 248, 255, 0.822);
   height: 4rem;
   padding: 1.5rem;
-  display: none;
 }
 
 .info {
