@@ -8,7 +8,7 @@ const loadTodos = () => {
   const todoCover = document.querySelector('.todo-list');
   todoCover.innerHTML = '';
   if (todoListArray.getAllTodos().length === 0) {
-    todoCover.innerHTML = '<h3 class= "alert">Todolist is Empty</h3>';
+    todoCover.innerHTML = '<h3 class="update">Todolist is Empty</h3>';
   } else {
     todoListArray.getAllTodos().forEach((todo, index) => {
       const todoListItem = document.createElement('div');
