@@ -1,8 +1,8 @@
 /* custom properties */
 :root {
   --primary-color-: black;
-  --secondary-color: rgba(0, 0, 0, 0.434);
-  --tetiary-color: rgba(128, 128, 128, 0.372);
+  --secondary-color: rgb(43, 114, 177);
+  --tetiary-color: cyan;
 }
 
 /* css resets */
@@ -16,6 +16,7 @@ body {
   background-color: var(--tetiary-color);
   font-size: 1rem;
   padding-top: 5rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 p {
@@ -36,29 +37,36 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
   padding: 1rem;
   width: 100%;
   max-width: 30rem;
+  filter: drop-shadow(2px 2px 2px);
 }
 
 /* todo-wrap */
+.header {
+  background-color: var(--tetiary-color);
+  margin: 4px 0;
+}
+
 .todo-wrap {
   border: 1px solid black;
   margin: 3rem auto;
   flex-direction: column;
+  background-color: var(--secondary-color);
 }
 
 .form {
   justify-content: space-between;
+  background-color: var(--tetiary-color);
 }
 
 .input,
 .item {
   height: 2rem;
   width: 100%;
-  background-color: var(--primary-color);
-  color: var(--primary-color);
+  color: var(--primary-color-);
+  background-color: var(--tetiary-color);
   outline: none;
   border: none;
 }
@@ -76,16 +84,21 @@ input:focus {
 
 .todo-list {
   width: 100%;
-  max-height: 30vh;
-  overflow: scroll;
 }
 
-.todo-list::-webkit-scrollbar {
-  display: none;
+.todo {
+  background-color: var(--tetiary-color);
+  border-radius: 4px;
+  margin: 3px 0;
 }
 
 .box {
   margin-right: 1rem;
+}
+
+.update {
+  margin: 0.5rem;
+  font-size: 2rem;
 }
 
 .ticked {
@@ -95,16 +108,13 @@ input:focus {
 
 .clear-list {
   justify-content: center;
+  background-color: var(--tetiary-color);
   padding: 0;
 }
 
 .clear-all {
   width: 100%;
   padding: 1.5rem;
-
-  /* height: 100%; */
-  background-color: var(--secondary-color);
-  color: rgba(240, 248, 255, 0.822);
 }
 
 /* footer */
