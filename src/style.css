@@ -1,8 +1,9 @@
 /* custom properties */
 :root {
-  --primary-color-: black;
-  --secondary-color: rgb(43, 114, 177);
-  --tetiary-color: cyan;
+  --primary-color-: #795c5f;
+  --secondary-color: #d9b26f;
+  --tetiary-color: #fadf7f;
+  --tetiary-color-1: #f2e29f;
 }
 
 /* css resets */
@@ -13,10 +14,16 @@
 }
 
 body {
-  background-color: var(--tetiary-color);
+  background-color: var(--tetiary-color-1);
   font-size: 1rem;
-  padding-top: 5rem;
+  padding-top: 3rem;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 5rem;
+  color: var(--primary-color-);
 }
 
 p {
@@ -51,7 +58,7 @@ button {
 
 .todo-wrap {
   border: 1px solid black;
-  margin: 3rem auto;
+  margin: 1rem auto;
   flex-direction: column;
   background-color: var(--secondary-color);
 }
