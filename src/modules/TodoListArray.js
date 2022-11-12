@@ -28,6 +28,23 @@ class TodoListArray {
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
+  clickCompleted(index) {
+    this.todos[index - 1].completed = !this.todos[index - 1].completed;
+    for (let i = 0; i < this.todos.length; i += 1) {
+      this.todos[i].idx = i + 1;
+    }
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
+  clearCompleted() {
+    const newArr = this.todos.filter((todo) => !todo.completed);
+    this.todos = newArr;
+    for (let i = 0; i < this.todos.length; i += 1) {
+      this.todos[i].idx = i + 1;
+    }
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
   getAllTodos() {
     return this.todos;
   }

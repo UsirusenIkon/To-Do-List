@@ -6,7 +6,7 @@
 ## Description 
    - This project is a simple HTML list of To Do tasks. It is built with html, css, javascript and webpack.
 
-## <a href="#">Live Demo</a>
+## <a href="https://usirusenikon.github.io/To-Do-List/dist/">Live Demo</a>
 
    The objectives of this project is to:
 
